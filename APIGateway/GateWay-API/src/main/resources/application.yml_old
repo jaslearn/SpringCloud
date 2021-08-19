@@ -1,0 +1,15 @@
+server:
+  port: 9090
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: books
+        uri: http://localhost:8081/books/
+        predicates:
+        - Path=/books/**
+      - id: novels
+        uri: http://localhost:8085/novels/
+        predicates:
+        - Path=/novels/**
